@@ -1,109 +1,111 @@
-/* --- Genel Stiller --- */
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* --- Modern Dark Theme Değişkenleri --- */
 :root {
-    --primary-color: #1a1a1a;
-    --secondary-color: #f4f4f4;
-    --accent-color: #4a90e2;
-    --text-color: #333;
-    --border-color: #e0e0e0;
+    --bg-color: #121212;
+    --card-color: #1E1E1E;
+    --primary-text-color: #E0E0E0;
+    --secondary-text-color: #BDBDBD;
+    --accent-color: #03DAC6; /* Canlı bir renk */
+    --border-color: #2c2c2c;
 }
 
+/* --- Genel Stiller --- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: var(--secondary-color);
-    color: var(--text-color);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
 }
 
-/* --- Ana Kapsayıcı --- */
 .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    overflow: hidden;
 }
 
 /* --- Başlık Alanı --- */
 header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 25px 20px;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 2.5em; /* 40px */
     font-weight: 600;
+    color: white;
 }
 
 /* --- Ana Kategori Başlıkları --- */
 .category-title {
-    padding: 15px 20px;
-    margin: 0;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid var(--border-color);
-    font-size: 22px;
-    color: var(--primary-color);
-}
-
-.placeholder {
-    padding: 20px;
-    text-align: center;
-    color: #888;
-}
-
-/* --- Marka Akordiyon Menüsü --- */
-details {
-    border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.2s;
-}
-
-details:last-of-type {
-    border-bottom: none;
-}
-
-summary {
-    padding: 18px 20px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    list-style: none; /* Varsayılan oku kaldır */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-summary::after {
-    content: '▼'; /* Kendi okumuzu ekliyoruz */
-    font-size: 12px;
-    transition: transform 0.2s;
-}
-
-details[open] summary::after {
-    transform: rotate(180deg);
-}
-
-details[open] summary {
-    background-color: #f0f5ff;
+    font-size: 1.8em; /* 28px */
     color: var(--accent-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- Marka Kartları Grid Yapısı --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobil için tek sütun */
+    gap: 20px; /* Kartlar arası boşluk */
+}
+
+/* --- Marka Kartı ("Kutu") Stili --- */
+.brand-card {
+    background-color: var(--card-color);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.brand-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.brand-title {
+    margin: 0 0 15px 0;
+    font-size: 1.4em; /* 22px */
+    font-weight: 600;
+    color: white;
 }
 
 /* --- Ürün Listesi --- */
 .flavor-list {
     list-style: none;
-    padding: 0 20px 20px 20px;
+    padding: 0;
     margin: 0;
-    background-color: #fff;
 }
 
 .flavor-list li {
-    padding: 10px 15px;
-    border-top: 1px dashed var(--border-color);
+    padding: 8px 0;
+    color: var(--secondary-text-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
-.flavor-list li:first-child {
-    border-top: none;
+.flavor-list li:last-child {
+    border-bottom: none;
+}
+
+/* --- "Yakında" Mesajı --- */
+.placeholder {
+    padding: 30px;
+    text-align: center;
+    color: var(--secondary-text-color);
+    background-color: var(--card-color);
+    border-radius: 12px;
+    border: 1px dashed var(--border-color);
+}
+
+/* --- Tablet ve Üzeri İçin (Responsive Tasarım) --- */
+@media (min-width: 600px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 sütunlu yapı */
+    }
 }
