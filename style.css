@@ -1,14 +1,109 @@
+/* --- Genel Stiller --- */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f4f4f4;
+    --accent-color: #4a90e2;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+}
+
 body {
-  font-family: sans-serif;
-  text-align: center;
-  background-color: #fdfdfd;
-  margin-top: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
-ul {
-  list-style: none;
-  padding: 0;
+
+/* --- Ana Kapsayıcı --- */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
-li {
-  font-size: 20px;
-  margin: 10px;
+
+/* --- Başlık Alanı --- */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* --- Ana Kategori Başlıkları --- */
+.category-title {
+    padding: 15px 20px;
+    margin: 0;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 22px;
+    color: var(--primary-color);
+}
+
+.placeholder {
+    padding: 20px;
+    text-align: center;
+    color: #888;
+}
+
+/* --- Marka Akordiyon Menüsü --- */
+details {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+
+details:last-of-type {
+    border-bottom: none;
+}
+
+summary {
+    padding: 18px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none; /* Varsayılan oku kaldır */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+summary::after {
+    content: '▼'; /* Kendi okumuzu ekliyoruz */
+    font-size: 12px;
+    transition: transform 0.2s;
+}
+
+details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+details[open] summary {
+    background-color: #f0f5ff;
+    color: var(--accent-color);
+}
+
+/* --- Ürün Listesi --- */
+.flavor-list {
+    list-style: none;
+    padding: 0 20px 20px 20px;
+    margin: 0;
+    background-color: #fff;
+}
+
+.flavor-list li {
+    padding: 10px 15px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.flavor-list li:first-child {
+    border-top: none;
 }
